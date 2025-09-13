@@ -1,0 +1,261 @@
+<!DOCTYPE html>
+<html lang="hi">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Aesthetic Love Webpage</title>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;700&display=swap');
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Poppins', sans-serif;
+    }
+
+    body {
+      min-height: 100vh;
+      background: linear-gradient(135deg, #89f7fe, #66a6ff);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 20px;
+      overflow-x: hidden;
+    }
+
+    .container {
+      background: rgba(255, 255, 255, 0.2);
+      backdrop-filter: blur(12px);
+      border-radius: 20px;
+      padding: 40px;
+      max-width: 650px;
+      text-align: center;
+      box-shadow: 0 10px 25px rgba(0,0,0,0.15);
+      opacity: 0;
+      transform: translateY(20px);
+      transition: opacity 0.6s ease, transform 0.6s ease;
+      position: absolute;
+      width: 100%;
+      z-index: 1;
+    }
+
+    .container.active {
+      opacity: 1;
+      transform: translateY(0);
+      position: relative;
+    }
+
+    .profile-img {
+      width: 120px;
+      height: 120px;
+      border-radius: 50%;
+      object-fit: cover;
+      margin-bottom: 10px;
+      border: 3px solid #fff;
+      box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+    }
+
+    .upload-btn {
+      margin-bottom: 20px;
+      color: #fff;
+      font-size: 0.9rem;
+    }
+
+    h1 {
+      font-size: 2.2rem;
+      color: #fff;
+      margin-bottom: 15px;
+    }
+
+    p {
+      font-size: 1rem;
+      color: #f0f0f0;
+      margin-bottom: 20px;
+    }
+
+    .btn {
+      display: inline-block;
+      padding: 12px 30px;
+      background: #fff;
+      color: #333;
+      font-weight: 600;
+      text-decoration: none;
+      border-radius: 30px;
+      transition: 0.3s ease;
+      margin-top: 10px;
+      cursor: pointer;
+    }
+
+    .btn:hover {
+      background: #333;
+      color: #fff;
+      transform: scale(1.05);
+    }
+
+    .quotes, .shayari {
+      margin-top: 25px;
+      color: #fff;
+      font-style: italic;
+      font-size: 1rem;
+      line-height: 1.08;
+      display: none;
+      opacity: 0;
+      transition: opacity 0.8s ease-in-out;
+    }
+
+    .quotes.show, .shayari.show {
+      display: block;
+      opacity: 1;
+    }
+
+    footer {
+      margin-top: 25px;
+      font-size: 0.85rem;
+      color: #fff;
+      opacity: 0.8;
+    }
+
+    #page2 {
+      background: linear-gradient(135deg, #ff9a9e, #fad0c4);
+    }
+
+    /* Watermark */
+    body::before {
+      content: "S47Y4M";
+      position: fixed;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%) rotate(-45deg);
+      font-size: 100px;
+      color: rgba(255, 255, 255, 0.1);
+      font-weight: 700;
+      z-index: 0;
+      pointer-events: none;
+    }
+
+  </style>
+</head>
+<body>
+  <!-- First Page -->
+  <div class="container active" id="page1">
+    <img id="profilePic" src="https://via.placeholder.com/120" alt="Profile" class="profile-img">
+    <div class="upload-btn">
+      <input type="file" id="fileInput" accept="image/*">
+    </div>
+
+    <h1>✨ Welcome to My Webpage ✨</h1>
+    <p>This page is designed with love, creativity, and a touch of aesthetics.  
+       Hope it makes you smile today. 🌸</p>
+
+    <div class="quotes" id="quotes">
+      <p>“Every time I see you, my heart smiles a little wider.”</p>
+      <p>“You are the reason behind my favorite daydreams.”</p>
+      <p>“In the story of my life, you are my favorite chapter.”</p>
+      <p>“If I could choose one person to be with forever, it would always be you.”</p>
+      <p>“With you, every moment feels like magic.”</p>
+    </div>
+
+    <button class="btn" onclick="toggleQuotes()" id="btn">Click Me</button>
+    <button class="btn" onclick="goToShayari()">Next Page ➡️</button>
+
+    <footer>Made with ❤️ by Me</footer>
+  </div>
+
+  <!-- Second Page -->
+  <div class="container" id="page2">
+    <h1>✨ <strong>FOR YOU </strong>✨</h1>
+
+    <!-- Button to show shayari -->
+    	
+    <button class="btn" onclick="showShayari()">💖 Show Shayari 💖</button>
+
+    <div class="shayari" id="shayariDiv">
+      <p>
+        chāñd sitāre phuul parinde shaam saverā ek taraf <br>
+        saarī duniyā us kā charba us kā chehrā ek taraf <br><br>
+
+        vo laḍ kar bhī so jaa.e to us kā māthā chūmūñ maiñ <br>
+        us se mohabbat ek taraf hai us se jhagḍā ek taraf <br><br>
+
+        jis shai par vo uñglī rakh de us ko vo dilvānī hai <br>
+        us kī ḳhushiyāñ sab se avval sastā mahñgā ek taraf <br><br>
+
+        saarī duniyā jo bhī bole sab kuchh shor-sharāba hai <br>
+        sab kā kahnā ek taraf hai us kā kahnā ek taraf <br><br>
+
+        zaḳhmoñ par marham lagvāo lekin us ke hāthoñ se <br>
+        chāra-sāzī ek taraf hai us kā chhūnā ek taraf <br><br>
+
+        us ne saarī duniyā māñgī maiñ ne us ko māñgā hai <br>
+        us ke sapne ek taraf haiñ merā sapnā ek taraf
+      </p>
+    </div>
+
+    <button class="btn" onclick="backToMain()">⬅️ Back</button>
+  </div>
+
+  <!-- JavaScript -->
+  <script>
+    // Toggle Quotes
+    function toggleQuotes() {
+      const quotes = document.getElementById("quotes");
+      const btn = document.getElementById("btn");
+
+      if (!quotes.classList.contains("show")) {
+        quotes.classList.add("show");
+        btn.innerText = "Hide Quotes";
+      } else {
+        quotes.classList.remove("show");
+        btn.innerText = "Show Quotes";
+      }
+    }
+
+    // Show Shayari on button click
+    function showShayari() {
+      const shayariDiv = document.getElementById("shayariDiv");
+      shayariDiv.classList.add("show");
+    }
+
+    // Page Navigation
+    function goToShayari() {
+      const page1 = document.getElementById("page1");
+      const page2 = document.getElementById("page2");
+
+      page1.classList.remove("active");
+      setTimeout(() => {
+        page1.style.display = "none";
+        page2.style.display = "block";
+        setTimeout(() => page2.classList.add("active"), 50);
+      }, 600);
+    }
+
+    function backToMain() {
+      const page1 = document.getElementById("page1");
+      const page2 = document.getElementById("page2");
+
+      page2.classList.remove("active");
+      setTimeout(() => {
+        page2.style.display = "none";
+        page1.style.display = "block";
+        setTimeout(() => page1.classList.add("active"), 50);
+      }, 600);
+    }
+
+    // Profile Picture Upload
+    const fileInput = document.getElementById("fileInput");
+    const profilePic = document.getElementById("profilePic");
+
+    fileInput.addEventListener("change", function(event) {
+      const file = event.target.files[0];
+      if (file) {
+        const reader = new FileReader();
+        reader.onload = function(e) {
+          profilePic.src = e.target.result;
+        };
+        reader.readAsDataURL(file);
+      }
+    });
+  </script>
+</body>
+</html>
